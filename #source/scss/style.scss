@@ -1,0 +1,597 @@
+@import "nullstyle.scss";
+
+
+// Цвета
+$colorLight: white;
+$colorDark: black;
+$colorRed: rgb(223, 0, 0);
+$bgColorRed: rgba(230, 20, 20, 0.87);
+
+// Шрифты
+$textRoboto: Roboto, sans-serif;
+$textComic: Comic, sans-serif;
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+section{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.languages{
+  position: fixed;
+  left: 10px;
+  top: 100px;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+  border: 1px solid rgb(151, 151, 151);
+  border-radius: 20px;
+  transition: 0.5s;
+  span{
+    font-size: 15px;
+    font-family: $textComic;
+    z-index: 1;
+    transition: 0.5s;
+  }
+  .en{
+    color: $colorLight;
+  }
+  .ru{
+    color: $colorDark;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 40px;
+    height: 40px;
+    background: $colorDark;
+    border-radius: 50%;
+    transition: 0.5s;
+    z-index: -1;
+  }
+}
+
+.clickLang{
+  .en{
+    color: $colorDark;
+  }
+  .ru{
+    color: $colorLight;
+  }
+  &:before{
+    position: absolute;
+    top: -1px;
+    left: 39px;
+  }
+}
+
+.scrollLang{
+  background: white;
+  z-index: 100;
+  &:before{
+    background: $bgColorRed;
+  }
+}
+
+
+header{
+  position: fixed;
+  width: 100%;
+  height: 88px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+  border-bottom: 1px solid rgb(151, 151, 151);
+  transition: 0.5s;
+  .logo{
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+      filter: invert(70%);
+    }
+    img{
+      max-width: 100%;
+    }
+  }
+  ul{
+    display: flex;
+    li{
+      width: 100px;
+      height: 88px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid rgba(255, 255, 255, 0);
+      color: $colorDark;
+      font-size: 15px;
+      font-family: $textComic;
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover{
+        border-bottom: 2px solid $colorRed;
+      }
+    }
+  }
+}
+
+.scrollHeader{
+  background: $colorLight;
+  z-index: 100;
+  li{
+    color: $colorRed;
+    &:hover{
+      border-bottom: 2px solid $colorDark;
+    }
+  }
+}
+
+
+.block1{
+  width: 100%;
+  height: 100vh;
+  background: url(../img/block1.jpg) center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  &__title{
+    font-size: 70px;
+    font-family: $textRoboto;
+    margin-top: 100px;
+  }
+  &__text{
+    color: $colorRed;
+    font-size: 18px;
+    font-family: $textRoboto;
+  }
+  &__btn{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 2px solid $colorDark;
+    border-radius: 50%;
+    background: none;
+    color: $colorRed;
+    font-size: 30px;
+    margin-top: 180px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -50px;
+      width: 100%;
+      height: 100%;
+      background: $colorRed;
+      z-index: -1;
+      transition: 0.5s;
+    }
+    &:hover{
+      color: $colorDark;
+      border: 2px solid $colorRed;
+      &:before{
+        top: 0;
+      }
+    }
+  }
+}
+
+.block2{
+  width: 100%;
+  min-height: 50vh;
+  background: $bgColorRed;
+  text-align: center;
+  padding-bottom: 100px;
+  color: $colorLight;
+  &__theme{
+    position: relative;
+    font-size: 32px;
+    font-family: $textComic;
+    text-transform: uppercase;
+    padding: 100px 0;
+    z-index: 1;
+    &:before{
+      content: 'W';
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 130px;
+      font-weight: bold;
+      opacity: 0.5;
+      z-index: -1;
+    }
+  }
+  &__info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    div{
+      width: 300px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 10px 0 10px;
+      i{
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 74, 74, 0.76);
+        border-radius: 50%;
+        font-size: 20px;
+      }
+      h4{
+        font-size: 18px;
+        font-family: $textRoboto;
+        text-transform: uppercase;
+      }
+      .p2{
+        font-size: 15px;
+        font-family: $textRoboto;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.block3{
+  display: flex;
+  flex-wrap: wrap;
+  div{
+    width: 50%;
+    min-height: 30%;
+  }
+  &__write1{
+    padding: 50px 80px 70px 150px;
+    background: rgb(97, 97, 97);
+    color: $colorLight;
+  }
+  &__write2{
+    padding: 50px 150px 70px 80px;
+    background: rgb(224, 224, 224);
+  }
+  .write{
+    .date{
+      font-size: 13px;
+      font-family: consolas;
+      padding-bottom: 10px;
+    }
+    h2{
+      font-size: 20px;
+      font-family: $textComic;
+      text-transform: uppercase;
+    }
+    .story{
+      font-size: 14px;
+      font-family: $textRoboto;
+      line-height: 17px;
+    }
+  }
+  &__img{
+    img{
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+.block4{
+  width: 100%;
+  text-align: center;
+  padding-bottom: 100px;
+  &__theme{
+    position: relative;
+    font-size: 32px;
+    font-family: $textComic;
+    text-transform: uppercase;
+    padding: 100px 0 60px 0;
+    z-index: 1;
+    &:before{
+      content: 'B';
+      position: absolute;
+      top: 53px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 130px;
+      font-weight: bold;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+  &__subtheme{
+    font-size: 20px;
+    font-family: $textComic;
+    letter-spacing: 2px;
+    padding-bottom: 90px;
+  }
+  &__cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    >div{
+      width: 290px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 20px;
+      .card-foto{
+        width: 250px;
+        height: 270px;
+        img{
+          width: 100%;
+          max-height: 100%;
+        }
+      }
+      h3{
+        color: $colorRed;
+        font-size: 18px;
+        font-family: $textRoboto;
+        text-transform: uppercase;
+        padding: 30px 0 15px 0;
+      }
+      p{
+        font-size: 15px;
+        font-family: $textRoboto;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.block5{
+  width: 100%;
+  padding: 100px 0;
+  background: $bgColorRed;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: $colorLight;
+  &__entry{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    i{
+      font-size: 70px;
+      font-weight: bolder;
+      margin-right: 20px;
+    }
+    p{
+      font-size: 14px;
+      font-family: $textRoboto;
+      line-height: 17px;
+    }
+  }
+}
+
+.block6{
+  width: 100%;
+  height: 91vh;
+  display: flex;
+  align-items: center;
+  background: url(../img/block6.jpg) center no-repeat;
+  background-size: cover;
+  &__content{
+    width: 500px;
+    padding: 50px 50px 0 0;
+    margin-left: 11%;
+    color: $colorLight;
+    h1{
+      font-size: 22px;
+      font-family: $textComic;
+      text-transform: uppercase;
+      padding-bottom: 30px;
+    }
+    p{
+      font-size: 14px;
+      font-family: $textRoboto;
+      line-height: 18px;
+      padding-bottom: 50px;
+    }
+    .string{
+      height: 50px;
+      position: relative;
+      background: $bgColorRed;
+      margin-bottom: 20px;
+      transition: 0.7s;
+      a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding-left: 15px;
+        color: $colorLight;
+        font-size: 18px;
+        font-family: $textRoboto;
+        text-transform: uppercase;
+        transition: 0.7s;
+        &:hover{
+          color: $colorDark;
+        }
+      }
+      &:hover{
+        width: 450px;
+        background: $colorLight;
+      }
+    }
+  }
+  &__string1{
+    width: 350px;
+  }
+  &__string2{
+    width: 375px;
+  }
+  &__string3{
+    width: 400px;
+  }
+}
+
+.block7{
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__theme{
+    position: relative;
+    font-size: 32px;
+    font-family: $textComic;
+    text-transform: uppercase;
+    padding-top: 100px;
+    margin-bottom: 100px;
+    z-index: 1;
+    text-align: center;
+    &:before{
+      content: 'C';
+      position: absolute;
+      top: 45px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 150px;
+      font-weight: bold;
+      opacity: 0.3;
+      z-index: -1;
+    }
+  }
+  &__form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    input{
+      min-width: 25%;
+      height: 35px;
+      border: 1px solid $colorDark;
+      padding: 10px 10px;
+      margin: 0 20px 40px 20px;
+      font-family: monospace;
+    }
+    textarea{
+      min-width: 85%;
+      height: 150px;
+      border: 1px solid $colorDark;
+      padding: 10px 10px;
+      font-family: monospace;
+      line-height: 18px;
+    }
+  }
+  &__btn{
+    width: 120px;
+    height: 45px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $bgColorRed;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 14px;
+    font-family: $textComic;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+}
+
+
+footer{
+  width: 100%;
+  height: 200px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(22, 22, 22);
+  padding: 20px 0 40px 0;
+  .networks{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 23px;
+    a{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $colorLight;
+      opacity: 0.5;
+      transition: 0.3s;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  pre{
+    font-size: 15px;
+    font-family: $textComic;
+    text-transform: uppercase;
+    margin-top: 10px;
+    a{
+      color: $colorLight;
+      transition: 0.3s;
+      &:hover{
+        color: $colorRed;
+      }
+    }
+    .separator{
+      color: $colorLight;
+      animation: glare 3s linear infinite;
+    }
+  }
+  p{
+    color: $colorLight;
+    font-size: 15px;
+    font-family: monospace;
+  }
+}
+
+
+
+// Анимации
+@keyframes glare {
+  0%, 100%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+}
+
+
+@import "mediastyle.scss";
